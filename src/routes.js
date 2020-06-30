@@ -12,7 +12,7 @@ import Lancamentos from './pages/Lancamentos';
 export default function Routes() {
     return(
         <NavigationContainer>
-            <AppStack.Navigator>
+            <AppStack.Navigator screenOptions={{headerShown: false}}>
                 <AppStack.Screen name="login" component={Login} />
                 <AppStack.Screen name="movimentos" component={Movimentos} />
                 <AppStack.Screen name="lancamentos" component={Lancamentos} />
