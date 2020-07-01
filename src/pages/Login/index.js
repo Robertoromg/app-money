@@ -1,10 +1,19 @@
 import React, {useState, useEffect} from 'react';
 import {View, Text,  Image, KeyboardAvoidingView, Animated } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './styles.js';
 
 
+
 export default function Login() {
+
+    const navigation = useNavigation();
+
+    function navigationToLancamentos() {
+        navigation.navigate('Lancamentos');
+    }
+
 
     const [offset] = useState(new Animated.ValueXY({x: 0, y:80}))
     const [opacity] = useState(new Animated.Value(0))
@@ -46,7 +55,7 @@ export default function Login() {
                     <TextInput style={styles.input} placeholder="Senha" autoCorrect={false} onChangeText={() => {}} />
                 </View>
 
-                <TouchableOpacity style={styles.btnSubmit}>
+                <TouchableOpacity style={styles.btnSubmit} onPress={navigationToLancamentos} >
                     <Text style={styles.submitText}>Acessar</Text>
                 </TouchableOpacity>
 
