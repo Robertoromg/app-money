@@ -5,15 +5,17 @@ export default StyleSheet.create({
     flex:1,
     alignItems: 'center',
     justifyContent: 'center',
-    backgroundColor: '#191919',
+    backgroundColor: '#32d9cb',
    },
    containerLogo: {
        flex: 1,
-       justifyContent: 'center'
+       justifyContent: 'center',
+       marginLeft: 10
+       
    },
    title: {
-    color: '#fff',
-    fontSize: 28,
+    color: '#009933',
+    fontSize: 38,
     fontWeight: 'bold'
    },
    container: {
@@ -36,16 +38,18 @@ export default StyleSheet.create({
        width: '90%'
    },
    btnSubmit: {
-      backgroundColor: '#35AAFF',
+      backgroundColor: '#009933',
       height: 45,
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 7,
       paddingHorizontal: 96,
-      width: '90%'
+      width: '90%',
+      marginBottom: 75
    },
    submitText: {
     color: '#fff',
     fontSize: 18
    }
+   
 });
