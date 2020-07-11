@@ -40,11 +40,12 @@ export default function Lancamentos() {
             </View>
 
             <View style={styles.select}>
-                <Picker
+                <Picker 
                 selectedValue={selectedValue}
                 style={{ height: 50, width: 150, color: '#d3d3d3' }}
                 onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                 >
+                <Picker.Item label="Categoria..." value="" />
                 <Picker.Item label="Energia" value="energia" />
                 <Picker.Item label="Combustível" value="combustivel" />
                 <Picker.Item label="Farmácia" value="farmacia" />
@@ -54,11 +55,12 @@ export default function Lancamentos() {
             </View>
 
             <View style={styles.select}>
-                <Picker
+                <Picker 
                 selectedValue={selectedValue}
                 style={{ height: 50, width: 150, color: '#d3d3d3' }}
                 onValueChange={(itemValue, itemIndex) => setSelectedValue(itemValue)}
                 >
+                <Picker.Item label="Tipo..." value="" />
                 <Picker.Item label="Débito" value="debito" />
                 <Picker.Item label="Crédito" value="credito" />
                 </Picker>

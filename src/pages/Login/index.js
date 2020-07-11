@@ -3,10 +3,12 @@ import {View, Text,  Image, KeyboardAvoidingView, Animated } from 'react-native'
 import { useNavigation } from '@react-navigation/native';
 import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
 import styles from './styles.js';
+import api from '../../Services/api';
 
 
 
 export default function Login() {
+    const [validarLogin, setLogin] = useState();
 
     const navigation = useNavigation();
 
@@ -14,11 +16,18 @@ export default function Login() {
         navigation.navigate('Lancamentos');
     }
 
+    async function loadLogin() {
+        const response = await api.get('');
+    
+        setLogin(response.data);
+    }
+
 
     const [offset] = useState(new Animated.ValueXY({x: 0, y:80}))
     const [opacity] = useState(new Animated.Value(0))
 
     useEffect(() => {
+        loadLogin();
         Animated.parallel([
             Animated.spring(offset.y, {
                 toValue:0,
@@ -48,11 +57,11 @@ export default function Login() {
                 }
                 ]}>
                 <View style={styles.container}>
-                    <TextInput style={styles.input} placeholder="Email" autoCorrect={false} onChangeText={() => {}} />
+                    <TextInput style={styles.input} placeholder="Email" autoCorrect={false} onChangeText={(value) => this.validarLogin({})} />
                 </View>
 
                 <View style={styles.container}>
-                    <TextInput style={styles.input} placeholder="Senha" autoCorrect={false} onChangeText={() => {}} />
+                    <TextInput style={styles.input} placeholder="Senha" secureTextEntry={true} autoCorrect={false} onChangeText={(value) => this.validarLogin({})} />
                 </View>
 
                 <TouchableOpacity style={styles.btnSubmit} onPress={navigationToLancamentos} >
